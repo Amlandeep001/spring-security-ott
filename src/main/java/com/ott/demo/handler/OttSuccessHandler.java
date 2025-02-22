@@ -1,6 +1,7 @@
 package com.ott.demo.handler;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +74,7 @@ public class OttSuccessHandler implements OneTimeTokenGenerationSuccessHandler
 
 			message.setText(messageBody);
 			javaMailSender.send(message);
+			log.info("One time token sent in email to {} at {}", oneTimeToken.getUsername(), LocalDateTime.now());
 		}
 		catch(Exception e)
 		{
